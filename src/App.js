@@ -1,11 +1,11 @@
 import './App.css';
-import { ThreeModel } from './components';
+import { WebGLCheck } from './components';
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <ThreeModel />
+        <WebGLCheck />
       </header>
     </div>
   );
