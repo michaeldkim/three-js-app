@@ -5,8 +5,11 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <WebGLCheck />
+        <h1>SSense Trends</h1>
       </header>
+      <div>
+        <WebGLCheck />
+      </div>
     </div>
   );
 }
