@@ -13,7 +13,9 @@ function App() {
       },
       body: 'grant_type=client_credientials&client_id=' + process.env.CLIENT_ID + '&client_secret=' + process.env.CLIENT_SECRET
     }
-    fetch('https://accounts.spotify.com/api/token')
+    fetch('https://accounts.spotify.com/api/token', authParameters)
+      .then(result => result.json())
+      .then(data => console.log(data.access_token))
   }, [])
   return (
     <div className="App">
