@@ -1,5 +1,5 @@
 import './App.css';
-import { WebGLCheck } from './components';
+/* import { WebGLCheck } from './components'; */
 
 function App() {
   return (
@@ -8,7 +8,7 @@ function App() {
         <h1>SSense Trends</h1>
       </header>
       <div>
-        <WebGLCheck />
+        {/* <WebGLCheck /> */}
       </div>
     </div>
   );

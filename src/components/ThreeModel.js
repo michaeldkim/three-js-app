@@ -49,8 +49,8 @@ const ThreeModel = () => {
             console.log(`Assigned color code: ${colorCode}`); // Debugging log
 
             return {
-              position: [scaledX, scaledY, item.clothing_category_encoded / 30],
-              name: item.brand,
+              position: [item.clothing_category_encoded / 30, scaledY, scaledX],
+              name: (item.clothing_category),
               color: colorCode  // Use the color code from the map
             };
           });
@@ -83,7 +83,7 @@ const ThreeModel = () => {
           </Text>
         </group>
       ))}
-      <OrbitControls target={[-.5, 1, 1]} />
+      <OrbitControls target={[3, 0, 0]} />
     </Canvas>
   );
 };
