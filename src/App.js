@@ -1,31 +1,25 @@
 import './App.css';
-/* import { WebGLCheck } from './components'; */
-import { useState, useEffect } from 'react';
+import { CallbackPage, SpotifyAuth } from './components';
+import { useState } from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 function App() {
-  const [searchInput, setSearchInput] = useState("");
+  const [accessToken, setAccessToken] = useState(null);
 
-  useEffect(() => {
-    var authParameters = {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/x-www-form-urlencoded'
-      },
-      body: 'grant_type=client_credientials&client_id=' + process.env.CLIENT_ID + '&client_secret=' + process.env.CLIENT_SECRET
-    }
-    fetch('https://accounts.spotify.com/api/token', authParameters)
-      .then(result => result.json())
-      .then(data => console.log(data.access_token))
-  }, [])
+  const handleAuthSuccess = token => {
+    setAccessToken(token);
+    // You can also store the token in localStorage or context for app-wide access
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <h1>SSense Trends</h1>
-      </header>
-      <div>
-        {/* <WebGLCheck /> */}
+    <Router>
+      <div className="App">
+        <Routes>
+          <Route path="/callback" element={<CallbackPage onAuthSuccess={handleAuthSuccess} />} />
+          <Route path="/" element={accessToken ? <div>Logged in!</div> : <SpotifyAuth />} />
+        </Routes>
       </div>
-    </div>
+    </Router>
   );
 }
 

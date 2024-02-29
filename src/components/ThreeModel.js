@@ -39,7 +39,7 @@ const ThreeModel = () => {
           const parsedData = first10Data.map((item) => {
             const scaledX = scaleValue(parseFloat(item.brand_encoded), scaleFactor.x);
             const scaledY = scaleValue(parseFloat(item.price_usd), scaleFactor.y);
-            const scaledZ = scaleValue(parseFloat(item.clothing_category_encoded), scaleFactor.z);
+            /* const scaledZ = scaleValue(parseFloat(item.clothing_category_encoded), scaleFactor.z); */
 
             // Assuming 'Colors' is the correct column name and it's not empty
             const firstColorName = item.colors && item.colors !== "" ? item.colors.split(',')[0].trim().toLowerCase() : 'defaultColor';
